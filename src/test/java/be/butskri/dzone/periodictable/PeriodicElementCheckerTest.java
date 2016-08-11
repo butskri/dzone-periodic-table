@@ -95,4 +95,28 @@ public class PeriodicElementCheckerTest {
         Assert.assertFalse(checker.isValidChemicalSymbol("Abcdc", "Dd"));
     }
 
+    @Test
+    public void canFindFirstInAlphabeticalOrder() {
+        Assert.assertEquals("Ab", checker.findFirstSymbolInAlphabeticalOrder("Abcd"));
+        Assert.assertEquals("Ab", checker.findFirstSymbolInAlphabeticalOrder("Acbd"));
+        Assert.assertEquals("Ab", checker.findFirstSymbolInAlphabeticalOrder("Acdb"));
+        Assert.assertEquals("Ab", checker.findFirstSymbolInAlphabeticalOrder("Cabd"));
+        Assert.assertEquals("Ab", checker.findFirstSymbolInAlphabeticalOrder("Cadb"));
+        Assert.assertEquals("Ab", checker.findFirstSymbolInAlphabeticalOrder("Cdab"));
+
+        Assert.assertEquals("Aa", checker.findFirstSymbolInAlphabeticalOrder("Aabc"));
+        Assert.assertEquals("Aa", checker.findFirstSymbolInAlphabeticalOrder("Abac"));
+        Assert.assertEquals("Aa", checker.findFirstSymbolInAlphabeticalOrder("Abca"));
+        Assert.assertEquals("Aa", checker.findFirstSymbolInAlphabeticalOrder("Baac"));
+        Assert.assertEquals("Aa", checker.findFirstSymbolInAlphabeticalOrder("Baca"));
+        Assert.assertEquals("Aa", checker.findFirstSymbolInAlphabeticalOrder("Bcaa"));
+    }
+
+    @Test
+    public void canCountNumberOfDistinctValidSymbols() {
+        Assert.assertEquals(6, checker.countNumberOfDistinctValidSymbols("Abcd"));
+        Assert.assertEquals(4, checker.countNumberOfDistinctValidSymbols("Baac"));
+        Assert.assertEquals(11, checker.countNumberOfDistinctValidSymbols("Zuulon"));
+    }
+
 }
