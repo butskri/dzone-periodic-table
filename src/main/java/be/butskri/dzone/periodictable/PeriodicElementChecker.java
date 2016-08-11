@@ -46,10 +46,16 @@ public class PeriodicElementChecker {
     }
 
     public String findFirstSymbolInAlphabeticalOrder(String elementName) {
+        if (!isValidElementName(elementName)) {
+            throw new IllegalArgumentException("invalid elementName: " + elementName);
+        }
         return determineAllPossibleDistinctSymbolsFor(elementName).first();
     }
 
     public int countNumberOfDistinctValidSymbols(String elementName) {
+        if (!isValidElementName(elementName)) {
+            throw new IllegalArgumentException("invalid elementName: " + elementName);
+        }
         return determineAllPossibleDistinctSymbolsFor(elementName).size();
     }
 

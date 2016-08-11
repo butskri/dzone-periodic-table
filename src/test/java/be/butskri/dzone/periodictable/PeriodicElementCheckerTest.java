@@ -119,4 +119,21 @@ public class PeriodicElementCheckerTest {
         Assert.assertEquals(11, checker.countNumberOfDistinctValidSymbols("Zuulon"));
     }
 
+    @Test
+    public void exceptionWhenInvalidArgumentForFindingFirstSymbolInAlphabeticalOrder() {
+        try {
+            checker.findFirstSymbolInAlphabeticalOrder("abcd");
+            Assert.fail();
+        } catch (IllegalArgumentException expected) {
+        }
+    }
+
+    @Test
+    public void exceptionWhenInvalidArgumentWhenCountingDistinctValidSymbols() {
+        try {
+            checker.countNumberOfDistinctValidSymbols("abcd");
+            Assert.fail();
+        } catch (IllegalArgumentException expected) {
+        }
+    }
 }
